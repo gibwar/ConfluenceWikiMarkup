@@ -230,6 +230,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#page-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#single-macro</string>
 				</dict>
 			</array>
@@ -315,6 +319,26 @@
 				</dict>
 			</array>
 		</dict>
+		<key>page-link</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.wiki.link.title</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.wiki.link.destination</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;!\\)\[([^|]*?)(?:\|([^]]*))?\]</string>
+			<key>name</key>
+			<string>meta.wiki.link</string>
+		</dict>
 		<key>preformatted</key>
 		<dict>
 			<key>begin</key>
@@ -344,6 +368,10 @@
 				<dict>
 					<key>include</key>
 					<string>#character-escape</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#page-link</string>
 				</dict>
 			</array>
 		</dict>

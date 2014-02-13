@@ -56,6 +56,7 @@ repository:
   inline-macro:
     patterns:
     - include: '#character-escape'
+    - include: '#page-link'
     - include: '#single-macro'
   lists:
     patterns:
@@ -75,6 +76,14 @@ repository:
     captures:
       '1': {name: constant.numeric}
       '2': {name: markup.heading}
+
+  # Inline macro/style definitions
+  page-link:
+    name: meta.wiki.link
+    match: (?<!\\)\[([^|]*?)(?:\|([^]]*))?\]
+    captures:
+      '1': {name: meta.wiki.link.title}
+      '2': {name: meta.wiki.link.destination}
 
   # List definitions
   unordered-list:
@@ -119,6 +128,7 @@ repository:
       '1': {name: variable.parameter.subtle variable.parameter}
     patterns:
     - include: '#character-escape'
+    - include: '#page-link'
 
   # Other items
   character-escape:
