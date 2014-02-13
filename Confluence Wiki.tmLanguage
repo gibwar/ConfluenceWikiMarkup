@@ -13,10 +13,6 @@
 	<key>patterns</key>
 	<array>
 		<dict>
-			<key>include</key>
-			<string>#character-escape</string>
-		</dict>
-		<dict>
 			<key>begin</key>
 			<string>(?:({)(code)(?=:language=(?i:sql)))</string>
 			<key>beginCaptures</key>
@@ -152,34 +148,34 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#block-level</string>
+			<string>#character-escape</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#inline</string>
+			<string>#lists</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#single-macro</string>
+			<string>#text-styling</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#block-macro</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#inline-macro</string>
 		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>block-level</key>
+		<key>block-macro</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
 					<string>#heading</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#bullet</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#list</string>
 				</dict>
 			</array>
 		</dict>
@@ -195,22 +191,9 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#inline</string>
+					<string>#text-styling</string>
 				</dict>
 			</array>
-		</dict>
-		<key>bullet</key>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>constant.numeric</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^((?:\*|-)(?:\*|\#|-)*)</string>
 		</dict>
 		<key>character-escape</key>
 		<dict>
@@ -237,7 +220,7 @@
 			<key>match</key>
 			<string>^(h[1-6]\.) (.*)$</string>
 		</dict>
-		<key>inline</key>
+		<key>inline-macro</key>
 		<dict>
 			<key>patterns</key>
 			<array>
@@ -247,19 +230,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#italic</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#bold</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#underline</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#preformatted</string>
+					<string>#single-macro</string>
 				</dict>
 			</array>
 		</dict>
@@ -275,31 +246,21 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#inline</string>
+					<string>#text-styling</string>
 				</dict>
 			</array>
 		</dict>
-		<key>list</key>
+		<key>lists</key>
 		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>constant.numeric</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>^(\#(?:\*|\#)*)</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#block-level</string>
+					<string>#unordered-list</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#inline</string>
+					<string>#numeric-list</string>
 				</dict>
 			</array>
 		</dict>
@@ -325,6 +286,34 @@
 			</dict>
 			<key>match</key>
 			<string>(\w+)(?:(=)((?:[^|}]+)))?</string>
+		</dict>
+		<key>numeric-list</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(\#(?:\*|\#)*)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#block-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+			</array>
 		</dict>
 		<key>preformatted</key>
 		<dict>
@@ -355,10 +344,6 @@
 				<dict>
 					<key>include</key>
 					<string>#character-escape</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#single-macro</string>
 				</dict>
 			</array>
 		</dict>
@@ -397,6 +382,32 @@
 				</dict>
 			</array>
 		</dict>
+		<key>text-styling</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#character-escape</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#bold</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#italic</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#preformatted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#underline</string>
+				</dict>
+			</array>
+		</dict>
 		<key>underline</key>
 		<dict>
 			<key>begin</key>
@@ -409,13 +420,22 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#character-escape</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#inline</string>
+					<string>#text-styling</string>
 				</dict>
 			</array>
+		</dict>
+		<key>unordered-list</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^((?:\*|-)(?:\*|\#|-)*)</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
