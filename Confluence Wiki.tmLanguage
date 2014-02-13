@@ -75,11 +75,11 @@
 					<array>
 						<dict>
 							<key>include</key>
-							<string>source.sql</string>
+							<string>source.plsql.oracle</string>
 						</dict>
 						<dict>
 							<key>include</key>
-							<string>source.plsql.oracle</string>
+							<string>source.sql</string>
 						</dict>
 					</array>
 				</dict>
@@ -185,10 +185,19 @@
 		</dict>
 		<key>bold</key>
 		<dict>
-			<key>match</key>
-			<string>\*.*?\*</string>
+			<key>begin</key>
+			<string>(?:\b|}?)(?&lt;!\\)\*(?=.*?(?&lt;!\\)\*)</string>
+			<key>end</key>
+			<string>(?&lt;!\\)\*</string>
 			<key>name</key>
 			<string>markup.bold</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
 		</dict>
 		<key>bullet</key>
 		<dict>
@@ -199,19 +208,14 @@
 					<key>name</key>
 					<string>constant.numeric</string>
 				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.unquoted</string>
-				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(\*(?:\*|\#)*) (.*)$</string>
+			<string>^((?:\*|-)(?:\*|\#|-)*)</string>
 		</dict>
 		<key>character-escape</key>
 		<dict>
 			<key>match</key>
-			<string>(\\(\||{|}|\[|\]|\(|\)|\*|_|-))</string>
+			<string>(\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+))</string>
 			<key>name</key>
 			<string>constant.character.escape</string>
 		</dict>
@@ -227,7 +231,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>string.unquoted</string>
+					<string>markup.heading</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -243,7 +247,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#italics</string>
+					<string>#italic</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -251,16 +255,29 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#underline</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#preformatted</string>
 				</dict>
 			</array>
 		</dict>
-		<key>italics</key>
+		<key>italic</key>
 		<dict>
-			<key>match</key>
-			<string>_.*?_</string>
+			<key>begin</key>
+			<string>(?:\b|})_(?=.*?_)</string>
+			<key>end</key>
+			<string>_</string>
 			<key>name</key>
 			<string>markup.italic</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
 		</dict>
 		<key>list</key>
 		<dict>
@@ -271,14 +288,20 @@
 					<key>name</key>
 					<string>constant.numeric</string>
 				</dict>
-				<key>2</key>
-				<dict>
-					<key>name</key>
-					<string>string.unquoted</string>
-				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(\#+) (.*)$</string>
+			<string>^(\#(?:\*|\#)*)</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#block-level</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
+				</dict>
+			</array>
 		</dict>
 		<key>name-value</key>
 		<dict>
@@ -299,21 +322,34 @@
 					<key>name</key>
 					<string>string.unquoted</string>
 				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>punctuation.separator.key-value.wiki</string>
-				</dict>
 			</dict>
 			<key>match</key>
-			<string>(\w+)(?:(=)((?:[^|}]+))(\|)?)?</string>
+			<string>(\w+)(?:(=)((?:[^|}]+)))?</string>
 		</dict>
 		<key>preformatted</key>
 		<dict>
 			<key>begin</key>
 			<string>({{)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.subtle variable.parameter</string>
+				</dict>
+			</dict>
 			<key>end</key>
 			<string>(}})</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.subtle variable.parameter</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>markup.code</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -358,6 +394,26 @@
 				<dict>
 					<key>include</key>
 					<string>#name-value</string>
+				</dict>
+			</array>
+		</dict>
+		<key>underline</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\\)\+(?=.*(?&lt;!\\)\+)</string>
+			<key>end</key>
+			<string>(?&lt;!\\)\+</string>
+			<key>name</key>
+			<string>markup.underline</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#character-escape</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline</string>
 				</dict>
 			</array>
 		</dict>
