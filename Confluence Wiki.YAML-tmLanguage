@@ -6,41 +6,41 @@ fileTypes: ["wiki", "confluence", "cwf"]
 uuid: de43e6f7-a820-4d64-a472-30c79f83a963
 
 patterns:
-- begin: (?:({)(code)(?=:language=(?i:sql)))
-  beginCaptures:
-    '1': {name: keyword.operator}
-    '2': {name: entity.name.tag}
-  end: (?<={code})
-  patterns:
-  - include: '#name-value'
-  - begin: (})
-    beginCaptures:
-      '1': {name: variable.parameter}
-    end: ({)(code)(})
-    endCaptures:
-      '1': {name: keyword.operator}
-      '2': {name: entity.name.tag.script}
-      '3': {name: keyword.operator}
-    patterns:
-    - include: 'source.plsql.oracle'
-    - include: 'source.sql'
-- begin: (?:({)(code)(?=:language=(?i:cs|c#)))
-  beginCaptures:
-    '1': {name: keyword.operator}
-    '2': {name: entity.name.tag}
-  end: (?<={code})
-  patterns:
-  - include: '#name-value'
-  - begin: (})
-    beginCaptures:
-      '1': {name: variable.parameter}
-    end: ({)(code)(})
-    endCaptures:
-      '1': {name: keyword.operator}
-      '2': {name: entity.name.tag.script}
-      '3': {name: keyword.operator}
-    patterns:
-    - include: 'source.cs'
+# - begin: (?:({)(code)(?=:language=(?i:sql)))
+#   beginCaptures:
+#     '1': {name: keyword.operator}
+#     '2': {name: entity.name.tag}
+#   end: (?<={code})
+#   patterns:
+#   - include: '#macro-settings'
+#   - begin: (})
+#     beginCaptures:
+#       '1': {name: variable.parameter}
+#     end: ({)(code)(})
+#     endCaptures:
+#       '1': {name: keyword.operator}
+#       '2': {name: entity.name.tag.script}
+#       '3': {name: keyword.operator}
+#     patterns:
+#     - include: 'source.plsql.oracle'
+#     - include: 'source.sql'
+# - begin: (?:({)(code)(?=:language=(?i:cs|c#)))
+#   beginCaptures:
+#     '1': {name: keyword.operator}
+#     '2': {name: entity.name.tag}
+#   end: (?<={code})
+#   patterns:
+#   - include: '#macro-settings'
+#   - begin: (})
+#     beginCaptures:
+#       '1': {name: variable.parameter}
+#     end: ({)(code)(})
+#     endCaptures:
+#       '1': {name: keyword.operator}
+#       '2': {name: entity.name.tag.script}
+#       '3': {name: keyword.operator}
+#     patterns:
+#     - include: 'source.cs'
 
 - include: '#character-escape'
 - include: '#lists'
@@ -143,22 +143,29 @@ repository:
   character-escape:
     name: constant.character.escape
     match: (\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+))
-  name-value:
-    match: (\w+)(?:(=)((?:[^|}]+)))?
+  macro-settings:
+    patterns:
+    - match: (:|\|)
+      captures:
+        '1': {name: keyword.operator}
+    - include: '#macro-key-value-pair'
+  macro-key-value-pair:
+    match: ([^=|}]+?)(?:(=)((?:[^|}]+)))?
     captures:
-      '1': {name: variable.parameter}
+      '1': {name: meta.macro.setting meta.macro.key constant.other}
       '2': {name: keyword.operator}
-      '3': {name: string.unquoted}
+      '3': {name: meta.macro.setting meta.macro.value string.unquoted}
   single-macro:
-    begin: ({)([^}:]+(:?))
+    name: meta.macro
+    begin: ({)([^}:]+)
     beginCaptures:
       '1': {name: keyword.operator}
-      '2': {name: entity.name.tag}
+      '2': {name: meta.macro.name entity.name.tag}
       '3': {name: keyword.operator}
     end: (})
     endCaptures:
       '1': {name: keyword.operator}
     patterns:
-      - include: '#name-value'
+    - include: '#macro-settings'
 
 ...
