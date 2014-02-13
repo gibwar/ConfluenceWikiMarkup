@@ -20,12 +20,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter</string>
+					<string>keyword.operator</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.script</string>
+					<string>entity.name.tag</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -54,7 +54,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>variable.parameter</string>
+							<string>keyword.operator</string>
 						</dict>
 						<key>2</key>
 						<dict>
@@ -64,7 +64,7 @@
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>variable.parameter</string>
+							<string>keyword.operator</string>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -89,12 +89,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter</string>
+					<string>keyword.operator</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.script</string>
+					<string>entity.name.tag</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -123,7 +123,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>variable.parameter</string>
+							<string>keyword.operator</string>
 						</dict>
 						<key>2</key>
 						<dict>
@@ -133,7 +133,7 @@
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>variable.parameter</string>
+							<string>keyword.operator</string>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -186,7 +186,7 @@
 			<key>end</key>
 			<string>(?&lt;!\\)\*</string>
 			<key>name</key>
-			<string>markup.bold</string>
+			<string>markup.bold meta.wiki.bold</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -209,7 +209,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric</string>
+					<string>entity.name.type</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -219,6 +219,8 @@
 			</dict>
 			<key>match</key>
 			<string>^(h[1-6]\.) (.*)$</string>
+			<key>name</key>
+			<string>markup.heading</string>
 		</dict>
 		<key>inline-macro</key>
 		<dict>
@@ -245,7 +247,7 @@
 			<key>end</key>
 			<string>_</string>
 			<key>name</key>
-			<string>markup.italic</string>
+			<string>markup.italic meta.wiki.italic</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -284,7 +286,7 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.separator.key-value.wiki</string>
+					<string>keyword.operator</string>
 				</dict>
 				<key>3</key>
 				<dict>
@@ -343,7 +345,7 @@
 			<key>match</key>
 			<string>(?&lt;!\\)\[([^|]*?)(?:\|([^]]*))?\]</string>
 			<key>name</key>
-			<string>meta.wiki.link</string>
+			<string>markup.underline.link</string>
 		</dict>
 		<key>preformatted</key>
 		<dict>
@@ -354,7 +356,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.subtle variable.parameter</string>
+					<string>keyword.operator.subtle</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -364,7 +366,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.subtle variable.parameter</string>
+					<string>keyword.operator.subtle</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -399,18 +401,23 @@
 		<key>single-macro</key>
 		<dict>
 			<key>begin</key>
-			<string>({)([^}:]+)</string>
+			<string>({)([^}:]+(:?))</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter</string>
+					<string>keyword.operator</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>entity.name.tag.script</string>
+					<string>entity.name.tag</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -420,7 +427,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter</string>
+					<string>keyword.operator</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -464,7 +471,7 @@
 			<key>end</key>
 			<string>(?&lt;!\\)\+</string>
 			<key>name</key>
-			<string>markup.underline</string>
+			<string>markup.underline meta.wiki.underline</string>
 			<key>patterns</key>
 			<array>
 				<dict>
