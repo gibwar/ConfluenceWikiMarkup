@@ -6,43 +6,9 @@ fileTypes: ["wiki", "confluence", "cwf"]
 uuid: de43e6f7-a820-4d64-a472-30c79f83a963
 
 patterns:
-# - begin: (?:({)(code)(?=:language=(?i:sql)))
-#   beginCaptures:
-#     '1': {name: keyword.operator}
-#     '2': {name: entity.name.tag}
-#   end: (?<={code})
-#   patterns:
-#   - include: '#macro-settings'
-#   - begin: (})
-#     beginCaptures:
-#       '1': {name: variable.parameter}
-#     end: ({)(code)(})
-#     endCaptures:
-#       '1': {name: keyword.operator}
-#       '2': {name: entity.name.tag.script}
-#       '3': {name: keyword.operator}
-#     patterns:
-#     - include: 'source.plsql.oracle'
-#     - include: 'source.sql'
-# - begin: (?:({)(code)(?=:language=(?i:cs|c#)))
-#   beginCaptures:
-#     '1': {name: keyword.operator}
-#     '2': {name: entity.name.tag}
-#   end: (?<={code})
-#   patterns:
-#   - include: '#macro-settings'
-#   - begin: (})
-#     beginCaptures:
-#       '1': {name: variable.parameter}
-#     end: ({)(code)(})
-#     endCaptures:
-#       '1': {name: keyword.operator}
-#       '2': {name: entity.name.tag.script}
-#       '3': {name: keyword.operator}
-#     patterns:
-#     - include: 'source.cs'
-
 - include: '#character-escape'
+- include: '#recognized-code-blocks'
+- include: '#unrecognized-code-block'
 - include: '#lists'
 - include: '#text-styling'
 - include: '#block-macro'
@@ -63,6 +29,14 @@ repository:
     - include: '#ordered-list'
     - include: '#simple-list'
     - include: '#unordered-list'
+  recognized-code-blocks:
+    patterns:
+    - include: '#code-block-cs'
+    - include: '#code-block-html'
+    - include: '#code-block-javascript'
+    - include: '#code-block-shell'
+    - include: '#code-block-sql'
+    - include: '#code-block-xml'
   text-styling:
     patterns:
     - include: '#character-escape'
@@ -167,5 +141,105 @@ repository:
       '1': {name: keyword.operator}
     patterns:
     - include: '#macro-settings'
+
+  # Code block definitions
+  code-block-cs:
+    name: meta.embedded.cs.wiki
+    begin: (?={code:language=(csharp|c#))
+    end: (?<={code})
+    patterns:
+    - include: '#single-macro'
+    - begin: (?<!{code})
+      end: ({)(code)(})
+      endCaptures:
+        '1': {name: keyword.operator}
+        '2': {name: meta.macro.name entity.name.tag}
+        '3': {name: keyword.operator}
+      patterns:
+      - include: 'source.cs'
+  code-block-html:
+    name: meta.embedded.html.wiki
+    begin: (?={code:language=html)
+    end: (?<={code})
+    patterns:
+    - include: '#single-macro'
+    - begin: (?<!{code})
+      end: ({)(code)(})
+      endCaptures:
+        '1': {name: keyword.operator}
+        '2': {name: meta.macro.name entity.name.tag}
+        '3': {name: keyword.operator}
+      patterns:
+      - include: 'text.html.basic'
+  code-block-javascript:
+    name: meta.embedded.javascript.wiki
+    begin: (?={code:language=javascript)
+    end: (?<={code})
+    patterns:
+    - include: '#single-macro'
+    - begin: (?<!{code})
+      end: ({)(code)(})
+      endCaptures:
+        '1': {name: keyword.operator}
+        '2': {name: meta.macro.name entity.name.tag}
+        '3': {name: keyword.operator}
+      patterns:
+      - include: 'source.js'
+  code-block-shell:
+    name: meta.embedded.shell.wiki
+    begin: (?={code:language=shell)
+    end: (?<={code})
+    patterns:
+    - include: '#single-macro'
+    - begin: (?<!{code})
+      end: ({)(code)(})
+      endCaptures:
+        '1': {name: keyword.operator}
+        '2': {name: meta.macro.name entity.name.tag}
+        '3': {name: keyword.operator}
+      patterns:
+      - include: 'source.shell'
+  code-block-sql:
+    name: meta.embedded.sql.wiki
+    begin: (?={code:language=sql)
+    end: (?<={code})
+    patterns:
+    - include: '#single-macro'
+    - begin: (?<!{code})
+      end: ({)(code)(})
+      endCaptures:
+        '1': {name: keyword.operator}
+        '2': {name: meta.macro.name entity.name.tag}
+        '3': {name: keyword.operator}
+      patterns:
+      - include: 'source.plsql.oracle'
+      - include: 'source.sql'
+  code-block-xml:
+    name: meta.embedded.xml.wiki
+    begin: (?={code:language=xml)
+    end: (?<={code})
+    patterns:
+    - include: '#single-macro'
+    - begin: (?<!{code})
+      end: ({)(code)(})
+      endCaptures:
+        '1': {name: keyword.operator}
+        '2': {name: meta.macro.name entity.name.tag}
+        '3': {name: keyword.operator}
+      patterns:
+      - include: 'text.xml'
+  unrecognized-code-block:
+    name: meta.embedded.raw.wiki
+    begin: (?={code)
+    end: (?<={code})
+    patterns:
+    - include: '#single-macro'
+    - contentName: markup.raw
+      begin: (?<!{code})
+      end: ({)(code)(})
+      endCaptures:
+        '1': {name: keyword.operator}
+        '2': {name: meta.macro.name entity.name.tag}
+        '3': {name: keyword.operator}
 
 ...
