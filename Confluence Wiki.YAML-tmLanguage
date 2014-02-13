@@ -60,8 +60,9 @@ repository:
     - include: '#single-macro'
   lists:
     patterns:
+    - include: '#ordered-list'
+    - include: '#simple-list'
     - include: '#unordered-list'
-    - include: '#numeric-list'
   text-styling:
     patterns:
     - include: '#character-escape'
@@ -86,18 +87,25 @@ repository:
       '2': {name: meta.wiki.link.destination}
 
   # List definitions
-  unordered-list:
-    match: ^((?:\*|-)(?:\*|\#|-)*)
+  ordered-list:
+    name: meta.wiki.list
+    match: ((?:^|(?<=\|)\s+)(?:\#(?:\*|\#)*) )
     captures:
-      '1': {name: constant.numeric}
-  numeric-list:
-    match: ^(\#(?:\*|\#)*)
-    captures:
-      '1': {name: constant.numeric}
+      '1': {name: markup.list.numbered}
     patterns:
     - include: '#block-macro'
     - include: '#inline-macro'
     - include: '#text-styling'
+  simple-list:
+    name: meta.wiki.list
+    match: (^(?:-)|(?:(?<=\|)\s+(?:-)) )
+    captures:
+      '1': {name: markup.list.unnumbered.simple}
+  unordered-list:
+    name: meta.wiki.list
+    match: ((?:^|(?<=\|)\s+)(?:\*(?:\*|\#)*) )
+    captures:
+      '1': {name: markup.list.unnumbered}
 
   # Text styles
   italic:

@@ -260,11 +260,15 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#unordered-list</string>
+					<string>#ordered-list</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#numeric-list</string>
+					<string>#simple-list</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#unordered-list</string>
 				</dict>
 			</array>
 		</dict>
@@ -291,18 +295,20 @@
 			<key>match</key>
 			<string>(\w+)(?:(=)((?:[^|}]+)))?</string>
 		</dict>
-		<key>numeric-list</key>
+		<key>ordered-list</key>
 		<dict>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric</string>
+					<string>markup.list.numbered</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(\#(?:\*|\#)*)</string>
+			<string>((?:^|(?&lt;=\|)\s+)(?:\#(?:\*|\#)*) )</string>
+			<key>name</key>
+			<string>meta.wiki.list</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -374,6 +380,21 @@
 					<string>#page-link</string>
 				</dict>
 			</array>
+		</dict>
+		<key>simple-list</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>markup.list.unnumbered.simple</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(^(?:-)|(?:(?&lt;=\|)\s+(?:-)) )</string>
+			<key>name</key>
+			<string>meta.wiki.list</string>
 		</dict>
 		<key>single-macro</key>
 		<dict>
@@ -459,11 +480,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>constant.numeric</string>
+					<string>markup.list.unnumbered</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^((?:\*|-)(?:\*|\#|-)*)</string>
+			<string>((?:^|(?&lt;=\|)\s+)(?:\*(?:\*|\#)*) )</string>
+			<key>name</key>
+			<string>meta.wiki.list</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
