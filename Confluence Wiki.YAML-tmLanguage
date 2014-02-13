@@ -1,0 +1,110 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Confluence Wiki
+scopeName: text.wiki.confluence
+fileTypes: ["wiki", "confluence", "cwf"]
+uuid: de43e6f7-a820-4d64-a472-30c79f83a963
+
+patterns:
+- include: '#character-escape'
+- begin: (?:({)(code)(?=:language=(?i:sql)))
+  beginCaptures:
+    '1': {name: variable.parameter}
+    '2': {name: entity.name.tag.script}
+  end: (?<={code})
+  patterns:
+  - include: '#name-value'
+  - begin: (})
+    beginCaptures:
+      '1': {name: variable.parameter}
+    end: ({)(code)(})
+    endCaptures:
+      '1': {name: variable.parameter}
+      '2': {name: entity.name.tag.script}
+      '3': {name: variable.parameter}
+    patterns:
+    - include: 'source.sql'
+    - include: 'source.plsql.oracle'
+- begin: (?:({)(code)(?=:language=(?i:cs|c#)))
+  beginCaptures:
+    '1': {name: variable.parameter}
+    '2': {name: entity.name.tag.script}
+  end: (?<={code})
+  patterns:
+  - include: '#name-value'
+  - begin: (})
+    beginCaptures:
+      '1': {name: variable.parameter}
+    end: ({)(code)(})
+    endCaptures:
+      '1': {name: variable.parameter}
+      '2': {name: entity.name.tag.script}
+      '3': {name: variable.parameter}
+    patterns:
+    - include: 'source.cs'
+- include: '#block-level'
+- include: '#inline'
+- include: '#single-macro'
+
+repository:
+  block-level:
+    patterns:
+    - include: '#heading'
+    - include: '#bullet'
+    - include: '#list'
+  inline:
+    patterns:
+    - include: '#character-escape'
+    - include: '#italics'
+    - include: '#bold'
+    - include: '#preformatted'
+  heading:
+    match: ^(h[1-6]\.) (.*)$
+    captures:
+      '1': {name: constant.numeric}
+      '2': {name: string.unquoted}
+  bullet:
+    match: ^(\*(?:\*|\#)*) (.*)$
+    captures:
+      '1': {name: constant.numeric}
+      '2': {name: string.unquoted}
+  list:
+    match: ^(\#(?:\*|\#)*) (.*)$
+    captures:
+      '1': {name: constant.numeric}
+      '2': {name: string.unquoted}
+  italics:
+    name: markup.italic
+    match: _.*?_
+  bold:
+    name: markup.bold
+    match: \*.*?\*
+  preformatted:
+    # begin: (?:{{(?=}}))
+    begin: ({{)
+    end: (}})
+    patterns:
+    - include: '#character-escape'
+    - include: '#single-macro'
+  character-escape:
+    name: constant.character.escape
+    match: (\\(\||{|}|\[|\]|\(|\)|\*|_|-))
+  name-value:
+    match: (\w+)(?:(=)((?:[^|}]+))(\|)?)?
+    captures:
+      '1': {name: variable.parameter}
+      '2': {name: punctuation.separator.key-value.wiki}
+      '3': {name: string.unquoted}
+      '4': {name: punctuation.separator.key-value.wiki}
+  single-macro:
+    begin: ({)([^}:]+)
+    beginCaptures:
+      '1': {name: variable.parameter}
+      '2': {name: entity.name.tag.script}
+    end: (})
+    endCaptures:
+      '1': {name: variable.parameter}
+    patterns:
+      - include: '#name-value'
+
+...
