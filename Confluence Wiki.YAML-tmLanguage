@@ -9,6 +9,7 @@ patterns:
 - include: '#character-escape'
 - include: '#recognized-code-blocks'
 - include: '#unrecognized-code-block'
+- include: '#page-link'
 - include: '#lists'
 - include: '#text-styling'
 - include: '#block-macro'
@@ -44,6 +45,8 @@ repository:
     - include: '#italic'
     - include: '#preformatted'
     - include: '#underline'
+    - include: '#strikethrough'
+    - include: '#single-macro'
 
   # Block macro definitions
   heading:
@@ -99,6 +102,12 @@ repository:
     name: markup.underline meta.wiki.underline
     begin: (?<!\\)\+(?=.*(?<!\\)\+)
     end: (?<!\\)\+
+    patterns:
+    - include: '#text-styling'
+  strikethrough:
+    name: markup.underline.strikethrough meta.wiki.strikethrough
+    begin: (?<!(?:\\|\w))-(?=[^-]*?(?<!\\)-)
+    end: ((?<!\\)-)(?!\w)
     patterns:
     - include: '#text-styling'
   preformatted:

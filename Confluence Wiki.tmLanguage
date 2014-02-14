@@ -26,6 +26,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#page-link</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#lists</string>
 		</dict>
 		<dict>
@@ -652,6 +656,22 @@
 				</dict>
 			</array>
 		</dict>
+		<key>strikethrough</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!(?:\\|\w))-(?=[^-]*?(?&lt;!\\)-)</string>
+			<key>end</key>
+			<string>((?&lt;!\\)-)(?!\w)</string>
+			<key>name</key>
+			<string>markup.underline.strikethrough meta.wiki.strikethrough</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+			</array>
+		</dict>
 		<key>text-styling</key>
 		<dict>
 			<key>patterns</key>
@@ -675,6 +695,14 @@
 				<dict>
 					<key>include</key>
 					<string>#underline</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#strikethrough</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single-macro</string>
 				</dict>
 			</array>
 		</dict>
