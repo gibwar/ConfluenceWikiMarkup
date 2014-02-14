@@ -60,9 +60,9 @@
 		<key>bold</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:\b|}?)(?&lt;!\\)\*(?=.*?(?&lt;!\\)\*)</string>
+			<string>(?&lt;!\w)(?&lt;!\\)\*(?=.+?(?&lt;!\\)\*)</string>
 			<key>end</key>
-			<string>(?&lt;!\\)\*</string>
+			<string>(?&lt;!\\)\*(?!\w)</string>
 			<key>name</key>
 			<string>markup.bold meta.wiki.bold</string>
 			<key>patterns</key>
@@ -407,9 +407,9 @@
 		<key>italic</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:\b|})_(?=.*?_)</string>
+			<string>(?&lt;!\w)(?&lt;!\\)_(?=.+?(?&lt;!\\)_)</string>
 			<key>end</key>
-			<string>_</string>
+			<string>(?&lt;!\\)_(?!\w)</string>
 			<key>name</key>
 			<string>markup.italic meta.wiki.italic</string>
 			<key>patterns</key>
@@ -659,7 +659,7 @@
 		<key>strikethrough</key>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;!(?:\\|\w))-(?=[^-]*?(?&lt;!\\)-)</string>
+			<string>(?&lt;!(?:\\|\w))-(?=.+?(?&lt;!\\)-)</string>
 			<key>end</key>
 			<string>((?&lt;!\\)-)(?!\w)</string>
 			<key>name</key>
@@ -709,9 +709,9 @@
 		<key>underline</key>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;!\\)\+(?=.*(?&lt;!\\)\+)</string>
+			<string>(?&lt;!\w)(?&lt;!\\)\+(?=.+?(?&lt;!\\)\+)</string>
 			<key>end</key>
-			<string>(?&lt;!\\)\+</string>
+			<string>(?&lt;!\\)\+(?!\w)</string>
 			<key>name</key>
 			<string>markup.underline meta.wiki.underline</string>
 			<key>patterns</key>

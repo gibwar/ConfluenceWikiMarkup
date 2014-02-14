@@ -88,25 +88,25 @@ repository:
   # Text styles
   italic:
     name: markup.italic meta.wiki.italic
-    begin: (?:\b|})_(?=.*?_)
-    end: _
+    begin: (?<!\w)(?<!\\)_(?=.+?(?<!\\)_)
+    end: (?<!\\)_(?!\w)
     patterns:
     - include: '#text-styling'
   bold:
     name: markup.bold meta.wiki.bold
-    begin: (?:\b|}?)(?<!\\)\*(?=.*?(?<!\\)\*)
-    end: (?<!\\)\*
+    begin: (?<!\w)(?<!\\)\*(?=.+?(?<!\\)\*)
+    end: (?<!\\)\*(?!\w)
     patterns:
     - include: '#text-styling'
   underline:
     name: markup.underline meta.wiki.underline
-    begin: (?<!\\)\+(?=.*(?<!\\)\+)
-    end: (?<!\\)\+
+    begin: (?<!\w)(?<!\\)\+(?=.+?(?<!\\)\+)
+    end: (?<!\\)\+(?!\w)
     patterns:
     - include: '#text-styling'
   strikethrough:
     name: markup.underline.strikethrough meta.wiki.strikethrough
-    begin: (?<!(?:\\|\w))-(?=[^-]*?(?<!\\)-)
+    begin: (?<!(?:\\|\w))-(?=.+?(?<!\\)-)
     end: ((?<!\\)-)(?!\w)
     patterns:
     - include: '#text-styling'
