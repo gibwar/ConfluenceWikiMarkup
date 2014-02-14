@@ -22,6 +22,8 @@ repository:
     - include: '#headings'
     - include: '#block-quote'
     - include: '#horizontal-line'
+    - include: '#table-header'
+    - include: '#table-cell'
   headings:
     patterns:
     - include: '#heading-1'
@@ -92,6 +94,62 @@ repository:
   horizontal-line:
     name: markup.separator.horizontal meta.separator.horizontal
     match: (^\s*----\s*$)
+  secondary-table-header:
+    name: markup.table.header meta.table.header.wiki
+    begin: (?:\s*(\|\|)\s+)
+    end: (?=\||$)
+    captures:
+      '1': {name: meta.table.header.subtle}
+    patterns:
+      - include: '#secondary-table-header'
+      - include: '#secondary-table-cell'
+      - include: '#page-link'
+      - include: '#block-quote'
+      - include: '#lists'
+      - include: '#text-styling'
+      - include: '#inline-macro'
+  secondary-table-cell:
+    name: markup.table.cell meta.table.cell.wiki
+    begin: (?:\s*(\|)\s+)
+    end: (?=\||$)
+    captures:
+      '1': {name: meta.table.cell.subtle}
+    patterns:
+      - include: '#secondary-table-header'
+      - include: '#secondary-table-cell'
+      - include: '#page-link'
+      - include: '#block-quote'
+      - include: '#lists'
+      - include: '#text-styling'
+      - include: '#inline-macro'
+  table-header:
+    name: markup.table.header meta.table.header.wiki
+    begin: ^((?:\s*\|\|))\s+
+    end: $
+    captures:
+      '1': {name: meta.table.header.subtle}
+    patterns:
+    - include: '#secondary-table-header'
+    - include: '#secondary-table-cell'
+    - include: '#page-link'
+    - include: '#block-quote'
+    - include: '#lists'
+    - include: '#text-styling'
+    - include: '#inline-macro'
+  table-cell:
+    name: markup.table.cell meta.table.cell.wiki
+    begin: ^((?:\s*\|))\s+
+    end: $
+    captures:
+      '1': {name: meta.table.cell.subtle}
+    patterns:
+    - include: '#secondary-table-header'
+    - include: '#secondary-table-cell'
+    - include: '#page-link'
+    - include: '#block-quote'
+    - include: '#lists'
+    - include: '#text-styling'
+    - include: '#inline-macro'
 
   # Heading definitions
   heading-1:

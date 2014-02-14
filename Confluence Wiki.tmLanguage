@@ -63,6 +63,14 @@
 					<key>include</key>
 					<string>#horizontal-line</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#table-header</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#table-cell</string>
+				</dict>
 			</array>
 		</dict>
 		<key>block-quote</key>
@@ -106,7 +114,7 @@
 			<key>begin</key>
 			<string>(?&lt;!\w)(?&lt;!\\)\*(?=.+?(?&lt;!\\)\*)</string>
 			<key>end</key>
-			<string>(?&lt;!\\)\*(?!\w)</string>
+			<string>(?&lt;!\\)\*</string>
 			<key>name</key>
 			<string>markup.bold meta.wiki.bold</string>
 			<key>patterns</key>
@@ -825,6 +833,102 @@
 				</dict>
 			</array>
 		</dict>
+		<key>secondary-table-cell</key>
+		<dict>
+			<key>begin</key>
+			<string>(?:\s*(\|)\s+)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.table.cell.subtle</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?=\||$)</string>
+			<key>name</key>
+			<string>markup.table.cell meta.table.cell.wiki</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#secondary-table-header</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#secondary-table-cell</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#page-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-quote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
+				</dict>
+			</array>
+		</dict>
+		<key>secondary-table-header</key>
+		<dict>
+			<key>begin</key>
+			<string>(?:\s*(\|\|)\s+)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.table.header.subtle</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(?=\||$)</string>
+			<key>name</key>
+			<string>markup.table.header meta.table.header.wiki</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#secondary-table-header</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#secondary-table-cell</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#page-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-quote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
+				</dict>
+			</array>
+		</dict>
 		<key>simple-list</key>
 		<dict>
 			<key>captures</key>
@@ -927,6 +1031,102 @@
 				<dict>
 					<key>include</key>
 					<string>#text-styling</string>
+				</dict>
+			</array>
+		</dict>
+		<key>table-cell</key>
+		<dict>
+			<key>begin</key>
+			<string>^((?:\s*\|))\s+</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.table.cell.subtle</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$</string>
+			<key>name</key>
+			<string>markup.table.cell meta.table.cell.wiki</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#secondary-table-header</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#secondary-table-cell</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#page-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-quote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
+				</dict>
+			</array>
+		</dict>
+		<key>table-header</key>
+		<dict>
+			<key>begin</key>
+			<string>^((?:\s*\|\|))\s+</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.table.header.subtle</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>$</string>
+			<key>name</key>
+			<string>markup.table.header meta.table.header.wiki</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#secondary-table-header</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#secondary-table-cell</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#page-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-quote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
 				</dict>
 			</array>
 		</dict>
