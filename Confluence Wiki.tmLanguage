@@ -76,9 +76,25 @@
 		<key>character-escape</key>
 		<dict>
 			<key>match</key>
-			<string>(\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+|\\))</string>
+			<string>(\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+|\\|\?|~|\^))</string>
 			<key>name</key>
 			<string>constant.character.escape</string>
+		</dict>
+		<key>citation</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\w)(?&lt;!\\)\?\?(?=.+?(?&lt;!\\)\?\?)</string>
+			<key>end</key>
+			<string>(?&lt;!\\)\?\?(?!\w)</string>
+			<key>name</key>
+			<string>markup.italic meta.wiki.citation</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+			</array>
 		</dict>
 		<key>code-block-cs</key>
 		<dict>
@@ -802,6 +818,38 @@
 				</dict>
 			</array>
 		</dict>
+		<key>subscript</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\\)~(?=.+?(?&lt;!\\)~)</string>
+			<key>end</key>
+			<string>(?&lt;!\\)~(?!\w)</string>
+			<key>name</key>
+			<string>markup.other.subscript meta.wiki.subscript</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+			</array>
+		</dict>
+		<key>superscript</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\\)\^(?=.+?(?&lt;!\\)\^)</string>
+			<key>end</key>
+			<string>(?&lt;!\\)\^(?!\w)</string>
+			<key>name</key>
+			<string>markup.other.superscript meta.wiki.superscript</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+			</array>
+		</dict>
 		<key>text-styling</key>
 		<dict>
 			<key>patterns</key>
@@ -829,6 +877,18 @@
 				<dict>
 					<key>include</key>
 					<string>#strikethrough</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#citation</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#subscript</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#superscript</string>
 				</dict>
 				<dict>
 					<key>include</key>

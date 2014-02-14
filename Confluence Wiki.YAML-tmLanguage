@@ -54,6 +54,9 @@ repository:
     - include: '#preformatted'
     - include: '#underline'
     - include: '#strikethrough'
+    - include: '#citation'
+    - include: '#subscript'
+    - include: '#superscript'
     - include: '#single-macro'
 
   # Inline macro/style definitions
@@ -124,6 +127,12 @@ repository:
       '1': {name: markup.list.unnumbered}
 
   # Text styles
+  citation:
+    name: markup.italic meta.wiki.citation
+    begin: (?<!\w)(?<!\\)\?\?(?=.+?(?<!\\)\?\?)
+    end: (?<!\\)\?\?(?!\w)
+    patterns:
+    - include: '#text-styling'
   italic:
     name: markup.italic meta.wiki.italic
     begin: (?<!\w)(?<!\\)_(?=.+?(?<!\\)_)
@@ -148,6 +157,18 @@ repository:
     end: ((?<!\\)-)(?!\w)
     patterns:
     - include: '#text-styling'
+  subscript:
+    name: markup.other.subscript meta.wiki.subscript
+    begin: (?<!\\)~(?=.+?(?<!\\)~)
+    end: (?<!\\)~(?!\w)
+    patterns:
+    - include: '#text-styling'
+  superscript:
+    name: markup.other.superscript meta.wiki.superscript
+    begin: (?<!\\)\^(?=.+?(?<!\\)\^)
+    end: (?<!\\)\^(?!\w)
+    patterns:
+    - include: '#text-styling'
   preformatted:
     name: markup.code
     begin: ({{)
@@ -163,7 +184,7 @@ repository:
   # Other items
   character-escape:
     name: constant.character.escape
-    match: (\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+|\\))
+    match: (\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+|\\|\?|~|\^))
   macro-settings:
     patterns:
     - match: (:|\|)
