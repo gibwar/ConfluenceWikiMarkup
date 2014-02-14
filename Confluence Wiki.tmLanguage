@@ -53,7 +53,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#heading</string>
+					<string>#headings</string>
 				</dict>
 			</array>
 		</dict>
@@ -76,7 +76,7 @@
 		<key>character-escape</key>
 		<dict>
 			<key>match</key>
-			<string>(\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+))</string>
+			<string>(\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+|\\))</string>
 			<key>name</key>
 			<string>constant.character.escape</string>
 		</dict>
@@ -366,7 +366,7 @@
 				</dict>
 			</array>
 		</dict>
-		<key>heading</key>
+		<key>heading-1</key>
 		<dict>
 			<key>captures</key>
 			<dict>
@@ -378,13 +378,143 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>markup.heading</string>
+					<string>markup.heading.1</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>^(h[1-6]\.) (.*)$</string>
+			<string>^(h1\.) (.*)$</string>
 			<key>name</key>
-			<string>markup.heading</string>
+			<string>markup.heading.1</string>
+		</dict>
+		<key>heading-2</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.heading.2</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(h2\.) (.*)$</string>
+			<key>name</key>
+			<string>markup.heading.2</string>
+		</dict>
+		<key>heading-3</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.heading.3</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(h3\.) (.*)$</string>
+			<key>name</key>
+			<string>markup.heading.3</string>
+		</dict>
+		<key>heading-4</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.heading.4</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(h4\.) (.*)$</string>
+			<key>name</key>
+			<string>markup.heading.4</string>
+		</dict>
+		<key>heading-5</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.heading.5</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(h5\.) (.*)$</string>
+			<key>name</key>
+			<string>markup.heading.5</string>
+		</dict>
+		<key>heading-6</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>markup.heading.6</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^(h6\.) (.*)$</string>
+			<key>name</key>
+			<string>markup.heading.6</string>
+		</dict>
+		<key>headings</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#heading-1</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#heading-2</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#heading-3</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#heading-4</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#heading-5</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#heading-6</string>
+				</dict>
+			</array>
 		</dict>
 		<key>inline-macro</key>
 		<dict>
