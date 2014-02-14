@@ -10,9 +10,9 @@ patterns:
 - include: '#recognized-code-blocks'
 - include: '#unrecognized-code-block'
 - include: '#page-link'
+- include: '#block-macro'
 - include: '#lists'
 - include: '#text-styling'
-- include: '#block-macro'
 - include: '#inline-macro'
 
 repository:
@@ -20,6 +20,8 @@ repository:
   block-macro:
     patterns:
     - include: '#headings'
+    - include: '#block-quote'
+    - include: '#horizontal-line'
   headings:
     patterns:
     - include: '#heading-1'
@@ -32,6 +34,7 @@ repository:
     patterns:
     - include: '#character-escape'
     - include: '#page-link'
+    - include: '#image-link'
     - include: '#single-macro'
   lists:
     patterns:
@@ -60,12 +63,35 @@ repository:
     - include: '#single-macro'
 
   # Inline macro/style definitions
+  image-link:
+    name: markup.image
+    match: (?<!\w)(?<!\\)(!)([^!]+?)(!)(?!\w)
+    captures:
+      '1': {name: keyword.operator}
+      '2': {name: meta.wiki.image.link}
+      '3': {name: keyword.operator}
   page-link:
     name: markup.underline.link
     match: (?<!\\)\[([^|]*?)(?:\|([^]]*))?\]
     captures:
       '1': {name: meta.wiki.link.title}
       '2': {name: meta.wiki.link.destination}
+
+  # Block macro/style definitions
+  block-quote:
+    name: markup.quote
+    match: ((?:^|\s+)bq\.)
+    contentName: markup.quote
+    captures:
+      '1': {name: entity.name.type}
+    patterns:
+    - include: '#page-link'
+    - include: '#lists'
+    - include: '#text-styling'
+    - include: '#inline-macro'
+  horizontal-line:
+    name: markup.separator.horizontal meta.separator.horizontal
+    match: (^\s*----\s*$)
 
   # Heading definitions
   heading-1:

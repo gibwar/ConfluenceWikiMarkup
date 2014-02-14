@@ -30,15 +30,15 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#block-macro</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#lists</string>
 		</dict>
 		<dict>
 			<key>include</key>
 			<string>#text-styling</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#block-macro</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -54,6 +54,50 @@
 				<dict>
 					<key>include</key>
 					<string>#headings</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-quote</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#horizontal-line</string>
+				</dict>
+			</array>
+		</dict>
+		<key>block-quote</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type</string>
+				</dict>
+			</dict>
+			<key>contentName</key>
+			<string>markup.quote</string>
+			<key>match</key>
+			<string>((?:^|\s+)bq\.)</string>
+			<key>name</key>
+			<string>markup.quote</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#page-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
 				</dict>
 			</array>
 		</dict>
@@ -532,6 +576,38 @@
 				</dict>
 			</array>
 		</dict>
+		<key>horizontal-line</key>
+		<dict>
+			<key>match</key>
+			<string>(^\s*----\s*$)</string>
+			<key>name</key>
+			<string>markup.separator.horizontal meta.separator.horizontal</string>
+		</dict>
+		<key>image-link</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.wiki.image.link</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;!\w)(?&lt;!\\)(!)([^!]+?)(!)(?!\w)</string>
+			<key>name</key>
+			<string>markup.image</string>
+		</dict>
 		<key>inline-macro</key>
 		<dict>
 			<key>patterns</key>
@@ -543,6 +619,10 @@
 				<dict>
 					<key>include</key>
 					<string>#page-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#image-link</string>
 				</dict>
 				<dict>
 					<key>include</key>
