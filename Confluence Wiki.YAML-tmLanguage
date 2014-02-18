@@ -118,7 +118,6 @@ repository:
       '3': {name: meta.operator.confluence keyword.operator.confluence}
     patterns:
     - include: '#recognized-macro-setting-helper'
-    - include: '#single-macro'
     - include: '#code-blocks'
     - include: '#lists'
     - include: '#text-styling'
@@ -134,7 +133,6 @@ repository:
       '3': {name: meta.operator.confluence keyword.operator.confluence}
     patterns:
     - include: '#recognized-macro-setting-helper'
-    - include: '#single-macro'
     - include: '#code-blocks'
     - include: '#lists'
     - include: '#text-styling'
@@ -150,7 +148,6 @@ repository:
       '3': {name: meta.operator.confluence keyword.operator.confluence}
     patterns:
     - include: '#recognized-macro-setting-helper'
-    - include: '#single-macro'
     - include: '#code-blocks'
     - include: '#lists'
     - include: '#text-styling'
@@ -166,7 +163,6 @@ repository:
       '3': {name: meta.operator.confluence keyword.operator.confluence}
     patterns:
     - include: '#recognized-macro-setting-helper'
-    - include: '#single-macro'
     - include: '#code-blocks'
     - include: '#lists'
     - include: '#text-styling'
@@ -337,10 +333,10 @@ repository:
     name: meta.preformatted.confluence markup.code.confluence
     begin: ({{)
     beginCaptures:
-      '1': {name: meta.operator.confluence keyword.operator.subtle.confluence}
+      '1': {name: meta.operator.subtle.confluence keyword.operator.subtle.confluence}
     end: (}})
     endCaptures:
-      '1': {name: meta.operator.confluence keyword.operator.subtle.confluence}
+      '1': {name: meta.operator.subtle.confluence keyword.operator.subtle.confluence}
     patterns:
     - include: '#character-escape'
     - include: '#page-link'

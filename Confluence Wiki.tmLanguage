@@ -701,10 +701,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#single-macro</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#code-blocks</string>
 				</dict>
 				<dict>
@@ -866,10 +862,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#single-macro</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#code-blocks</string>
 				</dict>
 				<dict>
@@ -949,7 +941,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.subtle.confluence</string>
+					<string>meta.operator.subtle.confluence keyword.operator.subtle.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -959,7 +951,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.subtle.confluence</string>
+					<string>meta.operator.subtle.confluence keyword.operator.subtle.confluence</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -1439,10 +1431,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#single-macro</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#code-blocks</string>
 				</dict>
 				<dict>
@@ -1567,10 +1555,6 @@
 				<dict>
 					<key>include</key>
 					<string>#recognized-macro-setting-helper</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#single-macro</string>
 				</dict>
 				<dict>
 					<key>include</key>
