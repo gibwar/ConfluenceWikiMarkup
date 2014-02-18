@@ -50,27 +50,27 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+					<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 				<key>4</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.settings.confluence meta.macro.settings.key.confluence constant.other.confluence</string>
+					<string>constant.other.confluence meta.macro.settings.confluence meta.macro.settings.key.confluence</string>
 				</dict>
 				<key>5</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -163,7 +163,7 @@
 			<key>end</key>
 			<string>(?&lt;!\\)\*(?!\w)</string>
 			<key>name</key>
-			<string>meta.bold.confluence markup.bold.confluence</string>
+			<string>markup.bold.confluence meta.bold.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -177,7 +177,7 @@
 			<key>match</key>
 			<string>(\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+|\\|\?|~|\^))</string>
 			<key>name</key>
-			<string>meta.character-escape.confluence constant.character.escape.confluence</string>
+			<string>constant.character.escape.confluence meta.character-escape.confluence</string>
 		</dict>
 		<key>citation</key>
 		<dict>
@@ -186,7 +186,7 @@
 			<key>end</key>
 			<string>(?&lt;!\\)\?\?(?!\w)</string>
 			<key>name</key>
-			<string>meta.citation.confluence markup.italic.confluence</string>
+			<string>markup.italic.confluence meta.citation.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -219,17 +219,17 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+							<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -266,17 +266,17 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+							<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -313,17 +313,17 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+							<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -360,17 +360,17 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+							<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -407,17 +407,17 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+							<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -458,17 +458,17 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+							<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 					<key>patterns</key>
@@ -507,13 +507,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>markup.heading.1.text.confluence</string>
+					<string>markup.heading.1.text.confluence meta.heading.1.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^(h1\.) (.*)$</string>
 			<key>name</key>
-			<string>meta.heading.1.confluence markup.heading.1.confluence</string>
+			<string>markup.heading.1.confluence meta.heading.1.confluence</string>
 		</dict>
 		<key>heading-2</key>
 		<dict>
@@ -527,13 +527,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.heading.2.confluence markup.heading.2.confluence</string>
+					<string>markup.heading.2.confluence meta.heading.2.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^(h2\.) (.*)$</string>
 			<key>name</key>
-			<string>meta.heading.2.confluence markup.heading.2.confluence</string>
+			<string>markup.heading.2.confluence meta.heading.2.confluence</string>
 		</dict>
 		<key>heading-3</key>
 		<dict>
@@ -547,13 +547,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.heading.3.confluence markup.heading.3.confluence</string>
+					<string>markup.heading.3.confluence meta.heading.3.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^(h3\.) (.*)$</string>
 			<key>name</key>
-			<string>meta.heading.3.confluence markup.heading.3.confluence</string>
+			<string>markup.heading.3.confluence meta.heading.3.confluence</string>
 		</dict>
 		<key>heading-4</key>
 		<dict>
@@ -567,13 +567,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.heading.4.confluence markup.heading.4.confluence</string>
+					<string>markup.heading.4.confluence meta.heading.4.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^(h4\.) (.*)$</string>
 			<key>name</key>
-			<string>meta.heading.4.confluence markup.heading.4.confluence</string>
+			<string>markup.heading.4.confluence meta.heading.4.confluence</string>
 		</dict>
 		<key>heading-5</key>
 		<dict>
@@ -587,13 +587,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.heading.5.confluence markup.heading.5.confluence</string>
+					<string>markup.heading.5.confluence meta.heading.5.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^(h5\.) (.*)$</string>
 			<key>name</key>
-			<string>meta.heading.5.confluence markup.heading.5.confluence</string>
+			<string>markup.heading.5.confluence meta.heading.5.confluence</string>
 		</dict>
 		<key>heading-6</key>
 		<dict>
@@ -607,13 +607,13 @@
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.heading.6.confluence markup.heading.6.confluence</string>
+					<string>markup.heading.6.confluence meta.heading.6.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>^(h6\.) (.*)$</string>
 			<key>name</key>
-			<string>meta.heading.6.confluence markup.heading.6.confluence</string>
+			<string>markup.heading.6.confluence meta.heading.6.confluence</string>
 		</dict>
 		<key>headings</key>
 		<dict>
@@ -650,7 +650,7 @@
 			<key>match</key>
 			<string>(^\s*----\s*$)</string>
 			<key>name</key>
-			<string>meta.separator.horizontal.confluence markup.separator.horizontal.confluence</string>
+			<string>markup.separator.horizontal.confluence meta.separator.horizontal.confluence</string>
 		</dict>
 		<key>image-link</key>
 		<dict>
@@ -676,17 +676,17 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.name entity.name.tag.confluence</string>
+					<string>entity.name.tag.confluence meta.macro.name.confluence meta.macro.name.info.confluence</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -754,7 +754,7 @@
 			<key>end</key>
 			<string>(?&lt;!\\)_(?!\w)</string>
 			<key>name</key>
-			<string>meta.italic.confluence markup.italic.confluence</string>
+			<string>markup.italic.confluence meta.italic.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -788,17 +788,17 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.settings.confluence meta.macro.settings.key.confluence constant.other.confluence</string>
+					<string>constant.other.confluence meta.macro.settings.confluence meta.macro.settings.key.confluence</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.settings.confluence meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.macro.settings.confluence meta.operator.confluence</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.settings.confluence meta.macro.settings.value.confluence string.unquoted.confluence</string>
+					<string>string.unquoted.confluence meta.macro.settings.confluence meta.macro.settings.value.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
@@ -816,7 +816,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 					<key>match</key>
@@ -837,17 +837,17 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.name entity.name.tag.confluence</string>
+					<string>entity.name.tag.confluence meta.macro.name.confluence meta.macro.name.note.confluence</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -889,13 +889,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.list.confluence meta.list.numbered.confluence markup.list.numbered.confluence</string>
+					<string>markup.list.numbered.confluence meta.list.confluence meta.list.numbered.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>((?:^|(?&lt;=\|)\s+)(?:\#(?:\*|\#)*) )</string>
 			<key>name</key>
-			<string>meta.list.confluence meta.list.numbered.confluence markup.list.numbered.confluence</string>
+			<string>markup.list.numbered.confluence meta.list.confluence meta.list.numbered.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -955,7 +955,7 @@
 				</dict>
 			</dict>
 			<key>name</key>
-			<string>meta.preformatted.confluence markup.code.confluence</string>
+			<string>markup.code.confluence meta.preformatted.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1008,47 +1008,47 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.settings.key.confluence constant.other.confluence</string>
+							<string>constant.other.confluence meta.macro.settings.key.confluence</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>4</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.settings.value.confluence string.unquoted.confluence</string>
+							<string>string.unquoted.confluence meta.macro.settings.value.confluence</string>
 						</dict>
 						<key>5</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>6</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.settings.key.confluence constant.other.confluence</string>
+							<string>constant.other.confluence meta.macro.settings.key.confluence</string>
 						</dict>
 						<key>7</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>8</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.settings.value.confluence string.unquoted.confluence</string>
+							<string>string.unquoted.confluence meta.macro.settings.value.confluence</string>
 						</dict>
 						<key>9</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 					<key>match</key>
@@ -1067,13 +1067,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.table.cell.subtle.confluence</string>
+					<string>meta.table.cell.border.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>(?=\||$)</string>
 			<key>name</key>
-			<string>meta.table.cell.confluence markup.table.cell.confluence</string>
+			<string>markup.table.cell.confluence meta.table.cell.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1115,13 +1115,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.table.header.subtle.confluence</string>
+					<string>meta.table.header.border.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>(?=\||$)</string>
 			<key>name</key>
-			<string>meta.table.header.confluence markup.table.header.confluence</string>
+			<string>markup.table.header.confluence meta.table.header.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1161,13 +1161,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.list.confluence meta.list.unnumbered.simple.confluence markup.list.unnumbered.simple.confluence</string>
+					<string>markup.list.unnumbered.simple.confluence meta.list.confluence meta.list.unnumbered.simple.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>(^(?:-)|(?:(?&lt;=\|)\s+(?:-)) )</string>
 			<key>name</key>
-			<string>meta.list.confluence meta.list.unnumbered.simple.confluence markup.list.unnumbered.simple.confluence</string>
+			<string>markup.list.unnumbered.simple.confluence meta.list.confluence meta.list.unnumbered.simple.confluence</string>
 		</dict>
 		<key>single-macro</key>
 		<dict>
@@ -1178,17 +1178,17 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+					<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -1198,7 +1198,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 			</dict>
 			<key>name</key>
@@ -1218,7 +1218,7 @@
 			<key>end</key>
 			<string>((?&lt;!\\)-)(?!\w)</string>
 			<key>name</key>
-			<string>meta.strikethrough.confluence markup.underline.strikethrough.confluence</string>
+			<string>markup.underline.strikethrough.confluence meta.strikethrough.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1234,7 +1234,7 @@
 			<key>end</key>
 			<string>(?&lt;!\\)~(?!\w)</string>
 			<key>name</key>
-			<string>meta.subscript.confluence markup.other.subscript.confluence</string>
+			<string>markup.other.subscript.confluence meta.subscript.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1250,7 +1250,7 @@
 			<key>end</key>
 			<string>(?&lt;!\\)\^(?!\w)</string>
 			<key>name</key>
-			<string>meta.superscript.confluence markup.other.superscript.confluence</string>
+			<string>markup.other.superscript.confluence meta.superscript.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1268,13 +1268,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.table.cell.subtle.confluence</string>
+					<string>meta.table.cell.border.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
-			<string>meta.table.cell.confluence markup.table.cell.confluence</string>
+			<string>markup.table.cell.confluence meta.table.cell.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1316,13 +1316,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.table.header.subtle.confluence</string>
+					<string>meta.table.header.border.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>$</string>
 			<key>name</key>
-			<string>meta.table.header.confluence markup.table.header.confluence</string>
+			<string>markup.table.header.confluence meta.table.header.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1406,17 +1406,17 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.name entity.name.tag.confluence</string>
+					<string>entity.name.tag.confluence meta.macro.name.confluence meta.macro.name.tip.confluence</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
@@ -1458,7 +1458,7 @@
 			<key>end</key>
 			<string>(?&lt;!\\)\+(?!\w)</string>
 			<key>name</key>
-			<string>meta.underline.confluence markup.underline.confluence</string>
+			<string>markup.underline.confluence meta.underline.confluence</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -1474,13 +1474,13 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.list.confluence meta.list.unnumbered.confluence markup.list.unnumbered.confluence</string>
+					<string>markup.list.unnumbered.confluence meta.list.confluence meta.list.unnumbered.confluence</string>
 				</dict>
 			</dict>
 			<key>match</key>
 			<string>((?:^|(?&lt;=\|)\s+)(?:\*(?:\*|\#)*) )</string>
 			<key>name</key>
-			<string>meta.list.confluence meta.list.unnumbered.confluence markup.list.unnumbered.confluence</string>
+			<string>markup.list.unnumbered.confluence meta.list.confluence meta.list.unnumbered.confluence</string>
 		</dict>
 		<key>unrecognized-code-block</key>
 		<dict>
@@ -1508,17 +1508,17 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 						<key>2</key>
 						<dict>
 							<key>name</key>
-							<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+							<string>entity.name.tag.confluence meta.macro.name.confluence</string>
 						</dict>
 						<key>3</key>
 						<dict>
 							<key>name</key>
-							<string>meta.operator.confluence keyword.operator.confluence</string>
+							<string>keyword.operator.confluence meta.operator.confluence</string>
 						</dict>
 					</dict>
 				</dict>
@@ -1533,17 +1533,17 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>meta.macro.name.confluence entity.name.tag.confluence</string>
+					<string>entity.name.tag.confluence meta.macro.name.confluence meta.macro.name.warning.confluence</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.confluence keyword.operator.confluence</string>
+					<string>keyword.operator.confluence meta.operator.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>

@@ -89,11 +89,11 @@ repository:
     name: meta.macro.anchor.confluence
     match: (?<!\\)({)(anchor)(:)([^}]+?)(})
     captures:
-      '1': {name: meta.operator.confluence keyword.operator.confluence}
-      '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-      '3': {name: meta.operator.confluence keyword.operator.confluence}
-      '4': {name: meta.macro.settings.confluence meta.macro.settings.key.confluence constant.other.confluence}
-      '5': {name: meta.operator.confluence keyword.operator.confluence}
+      '1': {name: keyword.operator.confluence meta.operator.confluence}
+      '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+      '3': {name: keyword.operator.confluence meta.operator.confluence}
+      '4': {name: constant.other.confluence meta.macro.settings.confluence meta.macro.settings.key.confluence}
+      '5': {name: keyword.operator.confluence meta.operator.confluence}
   block-quote:
     name: markup.quote.confluence
     match: ((?:^|\s+)bq\.)
@@ -106,16 +106,16 @@ repository:
     - include: '#text-styling'
     - include: '#inline-macro'
   horizontal-line:
-    name: meta.separator.horizontal.confluence markup.separator.horizontal.confluence
+    name: markup.separator.horizontal.confluence meta.separator.horizontal.confluence
     match: (^\s*----\s*$)
   info-macro:
     name: meta.macro.info.confluence
     begin: (?<!\\)({)(info)
     end: ({)(info)(})
     captures:
-      '1': {name: meta.operator.confluence keyword.operator.confluence}
-      '2': {name: meta.macro.name entity.name.tag.confluence}
-      '3': {name: meta.operator.confluence keyword.operator.confluence}
+      '1': {name: keyword.operator.confluence meta.operator.confluence}
+      '2': {name: entity.name.tag.confluence meta.macro.name.confluence meta.macro.name.info.confluence}
+      '3': {name: keyword.operator.confluence meta.operator.confluence}
     patterns:
     - include: '#recognized-macro-setting-helper'
     - include: '#code-blocks'
@@ -128,9 +128,9 @@ repository:
     begin: (?<!\\)({)(note)
     end: ({)(note)(})
     captures:
-      '1': {name: meta.operator.confluence keyword.operator.confluence}
-      '2': {name: meta.macro.name entity.name.tag.confluence}
-      '3': {name: meta.operator.confluence keyword.operator.confluence}
+      '1': {name: keyword.operator.confluence meta.operator.confluence}
+      '2': {name: entity.name.tag.confluence meta.macro.name.confluence meta.macro.name.note.confluence}
+      '3': {name: keyword.operator.confluence meta.operator.confluence}
     patterns:
     - include: '#recognized-macro-setting-helper'
     - include: '#code-blocks'
@@ -143,9 +143,9 @@ repository:
     begin: (?<!\\)({)(tip)
     end: ({)(tip)(})
     captures:
-      '1': {name: meta.operator.confluence keyword.operator.confluence}
-      '2': {name: meta.macro.name entity.name.tag.confluence}
-      '3': {name: meta.operator.confluence keyword.operator.confluence}
+      '1': {name: keyword.operator.confluence meta.operator.confluence}
+      '2': {name: entity.name.tag.confluence meta.macro.name.confluence meta.macro.name.tip.confluence}
+      '3': {name: keyword.operator.confluence meta.operator.confluence}
     patterns:
     - include: '#recognized-macro-setting-helper'
     - include: '#code-blocks'
@@ -158,9 +158,9 @@ repository:
     begin: (?<!\\)({)(warning)
     end: ({)(warning)(})
     captures:
-      '1': {name: meta.operator.confluence keyword.operator.confluence}
-      '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-      '3': {name: meta.operator.confluence keyword.operator.confluence}
+      '1': {name: keyword.operator.confluence meta.operator.confluence}
+      '2': {name: entity.name.tag.confluence meta.macro.name.confluence meta.macro.name.warning.confluence}
+      '3': {name: keyword.operator.confluence meta.operator.confluence}
     patterns:
     - include: '#recognized-macro-setting-helper'
     - include: '#code-blocks'
@@ -171,11 +171,11 @@ repository:
 
   # Table definitions
   secondary-table-header:
-    name: meta.table.header.confluence markup.table.header.confluence
+    name: markup.table.header.confluence meta.table.header.confluence
     begin: (?:\s+(\|\|))
     end: (?=\||$)
     captures:
-      '1': {name: meta.table.header.subtle.confluence}
+      '1': {name: meta.table.header.border.confluence}
     patterns:
       - include: '#secondary-table-header'
       - include: '#secondary-table-cell'
@@ -185,11 +185,11 @@ repository:
       - include: '#text-styling'
       - include: '#inline-macro'
   secondary-table-cell:
-    name: meta.table.cell.confluence markup.table.cell.confluence
+    name: markup.table.cell.confluence meta.table.cell.confluence
     begin: (?:\s+(\|))
     end: (?=\||$)
     captures:
-      '1': {name: meta.table.cell.subtle.confluence}
+      '1': {name: meta.table.cell.border.confluence}
     patterns:
       - include: '#secondary-table-header'
       - include: '#secondary-table-cell'
@@ -199,11 +199,11 @@ repository:
       - include: '#text-styling'
       - include: '#inline-macro'
   table-header:
-    name: meta.table.header.confluence markup.table.header.confluence
+    name: markup.table.header.confluence meta.table.header.confluence
     begin: ^((?:\s*\|\|))
     end: $
     captures:
-      '1': {name: meta.table.header.subtle.confluence}
+      '1': {name: meta.table.header.border.confluence}
     patterns:
     - include: '#secondary-table-header'
     - include: '#secondary-table-cell'
@@ -213,11 +213,11 @@ repository:
     - include: '#text-styling'
     - include: '#inline-macro'
   table-cell:
-    name: meta.table.cell.confluence markup.table.cell.confluence
+    name: markup.table.cell.confluence meta.table.cell.confluence
     begin: ^((?:\s*\|))
     end: $
     captures:
-      '1': {name: meta.table.cell.subtle.confluence}
+      '1': {name: meta.table.cell.border.confluence}
     patterns:
     - include: '#secondary-table-header'
     - include: '#secondary-table-cell'
@@ -229,108 +229,108 @@ repository:
 
   # Heading definitions
   heading-1:
-    name: meta.heading.1.confluence markup.heading.1.confluence
+    name: markup.heading.1.confluence meta.heading.1.confluence
     match: ^(h1\.) (.*)$
     captures:
       '1': {name: entity.name.type.confluence}
-      '2': {name: markup.heading.1.text.confluence}
+      '2': {name: markup.heading.1.text.confluence meta.heading.1.confluence}
   heading-2:
-    name: meta.heading.2.confluence markup.heading.2.confluence
+    name: markup.heading.2.confluence meta.heading.2.confluence
     match: ^(h2\.) (.*)$
     captures:
       '1': {name: entity.name.type.confluence}
-      '2': {name: meta.heading.2.confluence markup.heading.2.confluence}
+      '2': {name: markup.heading.2.confluence meta.heading.2.confluence}
   heading-3:
-    name: meta.heading.3.confluence markup.heading.3.confluence
+    name: markup.heading.3.confluence meta.heading.3.confluence
     match: ^(h3\.) (.*)$
     captures:
       '1': {name: entity.name.type.confluence}
-      '2': {name: meta.heading.3.confluence markup.heading.3.confluence}
+      '2': {name: markup.heading.3.confluence meta.heading.3.confluence}
   heading-4:
-    name: meta.heading.4.confluence markup.heading.4.confluence
+    name: markup.heading.4.confluence meta.heading.4.confluence
     match: ^(h4\.) (.*)$
     captures:
       '1': {name: entity.name.type.confluence}
-      '2': {name: meta.heading.4.confluence markup.heading.4.confluence}
+      '2': {name: markup.heading.4.confluence meta.heading.4.confluence}
   heading-5:
-    name: meta.heading.5.confluence markup.heading.5.confluence
+    name: markup.heading.5.confluence meta.heading.5.confluence
     match: ^(h5\.) (.*)$
     captures:
       '1': {name: entity.name.type.confluence}
-      '2': {name: meta.heading.5.confluence markup.heading.5.confluence}
+      '2': {name: markup.heading.5.confluence meta.heading.5.confluence}
   heading-6:
-    name: meta.heading.6.confluence markup.heading.6.confluence
+    name: markup.heading.6.confluence meta.heading.6.confluence
     match: ^(h6\.) (.*)$
     captures:
       '1': {name: entity.name.type.confluence}
-      '2': {name: meta.heading.6.confluence markup.heading.6.confluence}
+      '2': {name: markup.heading.6.confluence meta.heading.6.confluence}
 
   # List definitions
   ordered-list:
-    name: meta.list.confluence meta.list.numbered.confluence markup.list.numbered.confluence
+    name: markup.list.numbered.confluence meta.list.confluence meta.list.numbered.confluence
     match: ((?:^|(?<=\|)\s+)(?:\#(?:\*|\#)*) )
     captures:
-      '1': {name: meta.list.confluence meta.list.numbered.confluence markup.list.numbered.confluence}
+      '1': {name: markup.list.numbered.confluence meta.list.confluence meta.list.numbered.confluence}
     patterns:
     - include: '#block-macro'
     - include: '#inline-macro'
     - include: '#text-styling'
   simple-list:
-    name: meta.list.confluence meta.list.unnumbered.simple.confluence markup.list.unnumbered.simple.confluence
+    name: markup.list.unnumbered.simple.confluence meta.list.confluence meta.list.unnumbered.simple.confluence
     match: (^(?:-)|(?:(?<=\|)\s+(?:-)) )
     captures:
-      '1': {name: meta.list.confluence meta.list.unnumbered.simple.confluence markup.list.unnumbered.simple.confluence}
+      '1': {name: markup.list.unnumbered.simple.confluence meta.list.confluence meta.list.unnumbered.simple.confluence}
   unordered-list:
-    name: meta.list.confluence meta.list.unnumbered.confluence markup.list.unnumbered.confluence
+    name: markup.list.unnumbered.confluence meta.list.confluence meta.list.unnumbered.confluence
     match: ((?:^|(?<=\|)\s+)(?:\*(?:\*|\#)*) )
     captures:
-      '1': {name: meta.list.confluence meta.list.unnumbered.confluence markup.list.unnumbered.confluence}
+      '1': {name: markup.list.unnumbered.confluence meta.list.confluence meta.list.unnumbered.confluence}
 
   # Text styles
   citation:
-    name: meta.citation.confluence markup.italic.confluence
+    name: markup.italic.confluence meta.citation.confluence
     begin: (?<!\w)(?<!\\)\?\?(?=.+?(?<!\\)\?\?)
     end: (?<!\\)\?\?(?!\w)
     patterns:
     - include: '#text-styling'
   italic:
-    name: meta.italic.confluence markup.italic.confluence
+    name: markup.italic.confluence meta.italic.confluence
     begin: (?<!\w)(?<!\\)_(?=.+?(?<!\\)_)
     end: (?<!\\)_(?!\w)
     patterns:
     - include: '#text-styling'
   bold:
-    name: meta.bold.confluence markup.bold.confluence
+    name: markup.bold.confluence meta.bold.confluence
     begin: (?<!\w)(?<!\\)\*(?=.+?(?<!\\)\*)
     end: (?<!\\)\*(?!\w)
     patterns:
     - include: '#text-styling'
   underline:
-    name: meta.underline.confluence markup.underline.confluence
+    name: markup.underline.confluence meta.underline.confluence
     begin: (?<!\w)(?<!\\)\+(?=.+?(?<!\\)\+)
     end: (?<!\\)\+(?!\w)
     patterns:
     - include: '#text-styling'
   strikethrough:
-    name: meta.strikethrough.confluence markup.underline.strikethrough.confluence
+    name: markup.underline.strikethrough.confluence meta.strikethrough.confluence
     begin: (?<!(?:\\|\w))-(?=.+?(?<!\\)-)
     end: ((?<!\\)-)(?!\w)
     patterns:
     - include: '#text-styling'
   subscript:
-    name: meta.subscript.confluence markup.other.subscript.confluence
+    name: markup.other.subscript.confluence meta.subscript.confluence
     begin: (?<!\\)~(?=.+?(?<!\\)~)
     end: (?<!\\)~(?!\w)
     patterns:
     - include: '#text-styling'
   superscript:
-    name: meta.superscript.confluence markup.other.superscript.confluence
+    name: markup.other.superscript.confluence meta.superscript.confluence
     begin: (?<!\\)\^(?=.+?(?<!\\)\^)
     end: (?<!\\)\^(?!\w)
     patterns:
     - include: '#text-styling'
   preformatted:
-    name: meta.preformatted.confluence markup.code.confluence
+    name: markup.code.confluence meta.preformatted.confluence
     begin: ({{)
     beginCaptures:
       '1': {name: meta.operator.subtle.confluence keyword.operator.subtle.confluence}
@@ -343,45 +343,45 @@ repository:
 
   # Other items
   character-escape:
-    name: meta.character-escape.confluence constant.character.escape.confluence
+    name: constant.character.escape.confluence meta.character-escape.confluence
     match: (\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+|\\|\?|~|\^))
   recognized-macro-setting-helper:
     patterns:
     - name: meta.macro.settings.confluence
       match: (?:(:)(?:([^=|}]+?)(=)([^=|}]+?)(\|))*([^=|}]+?)(=)([^}]+?))?(})
       captures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
-        '2': {name: meta.macro.settings.key.confluence constant.other.confluence}
-        '3': {name: meta.operator.confluence keyword.operator.confluence}
-        '4': {name: meta.macro.settings.value.confluence string.unquoted.confluence}
-        '5': {name: meta.operator.confluence keyword.operator.confluence}
-        '6': {name: meta.macro.settings.key.confluence constant.other.confluence}
-        '7': {name: meta.operator.confluence keyword.operator.confluence}
-        '8': {name: meta.macro.settings.value.confluence string.unquoted.confluence}
-        '9': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
+        '2': {name: constant.other.confluence meta.macro.settings.key.confluence}
+        '3': {name: keyword.operator.confluence meta.operator.confluence}
+        '4': {name: string.unquoted.confluence meta.macro.settings.value.confluence}
+        '5': {name: keyword.operator.confluence meta.operator.confluence}
+        '6': {name: constant.other.confluence meta.macro.settings.key.confluence}
+        '7': {name: keyword.operator.confluence meta.operator.confluence}
+        '8': {name: string.unquoted.confluence meta.macro.settings.value.confluence}
+        '9': {name: keyword.operator.confluence meta.operator.confluence}
   macro-settings:
     name: meta.macro.settings.confluence
     patterns:
     - match: (:|\|)
       captures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
     - include: '#macro-key-value-pair'
   macro-key-value-pair:
     match: ([^=|}]+?)(?:(=)((?:[^|}]+)))?
     captures:
-      '1': {name: meta.macro.settings.confluence meta.macro.settings.key.confluence constant.other.confluence}
-      '2': {name: meta.macro.settings.confluence meta.operator.confluence keyword.operator.confluence}
-      '3': {name: meta.macro.settings.confluence meta.macro.settings.value.confluence string.unquoted.confluence}
+      '1': {name: constant.other.confluence meta.macro.settings.confluence meta.macro.settings.key.confluence}
+      '2': {name: keyword.operator.confluence meta.macro.settings.confluence meta.operator.confluence}
+      '3': {name: string.unquoted.confluence meta.macro.settings.confluence meta.macro.settings.value.confluence}
   single-macro:
     name: meta.macro
     begin: ({)([^}:]+)
     beginCaptures:
-      '1': {name: meta.operator.confluence keyword.operator.confluence}
-      '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-      '3': {name: meta.operator.confluence keyword.operator.confluence}
+      '1': {name: keyword.operator.confluence meta.operator.confluence}
+      '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+      '3': {name: keyword.operator.confluence meta.operator.confluence}
     end: (})
     endCaptures:
-      '1': {name: meta.operator.confluence keyword.operator.confluence}
+      '1': {name: keyword.operator.confluence meta.operator.confluence}
     patterns:
     - include: '#macro-settings'
 
@@ -395,9 +395,9 @@ repository:
     - begin: (?<!{code})
       end: ({)(code)(})
       endCaptures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
-        '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-        '3': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
+        '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+        '3': {name: keyword.operator.confluence meta.operator.confluence}
       patterns:
       - include: 'source.cs'
   code-block-html:
@@ -409,9 +409,9 @@ repository:
     - begin: (?<!{code})
       end: ({)(code)(})
       endCaptures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
-        '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-        '3': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
+        '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+        '3': {name: keyword.operator.confluence meta.operator.confluence}
       patterns:
       - include: 'text.html.basic'
   code-block-javascript:
@@ -423,9 +423,9 @@ repository:
     - begin: (?<!{code})
       end: ({)(code)(})
       endCaptures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
-        '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-        '3': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
+        '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+        '3': {name: keyword.operator.confluence meta.operator.confluence}
       patterns:
       - include: 'source.js'
   code-block-shell:
@@ -437,9 +437,9 @@ repository:
     - begin: (?<!{code})
       end: ({)(code)(})
       endCaptures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
-        '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-        '3': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
+        '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+        '3': {name: keyword.operator.confluence meta.operator.confluence}
       patterns:
       - include: 'source.shell'
   code-block-sql:
@@ -451,9 +451,9 @@ repository:
     - begin: (?<!{code})
       end: ({)(code)(})
       endCaptures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
-        '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-        '3': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
+        '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+        '3': {name: keyword.operator.confluence meta.operator.confluence}
       patterns:
       - include: 'source.plsql.oracle'
       - include: 'source.sql'
@@ -466,9 +466,9 @@ repository:
     - begin: (?<!{code})
       end: ({)(code)(})
       endCaptures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
-        '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-        '3': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
+        '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+        '3': {name: keyword.operator.confluence meta.operator.confluence}
       patterns:
       - include: 'text.xml'
   unrecognized-code-block:
@@ -481,8 +481,8 @@ repository:
       begin: (?<!{code})
       end: ({)(code)(})
       endCaptures:
-        '1': {name: meta.operator.confluence keyword.operator.confluence}
-        '2': {name: meta.macro.name.confluence entity.name.tag.confluence}
-        '3': {name: meta.operator.confluence keyword.operator.confluence}
+        '1': {name: keyword.operator.confluence meta.operator.confluence}
+        '2': {name: entity.name.tag.confluence meta.macro.name.confluence}
+        '3': {name: keyword.operator.confluence meta.operator.confluence}
 
 ...
