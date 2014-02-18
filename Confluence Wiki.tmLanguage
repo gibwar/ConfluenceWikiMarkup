@@ -18,11 +18,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#recognized-code-blocks</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#unrecognized-code-block</string>
+			<string>#code-blocks</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -47,6 +43,41 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>anchor-macro</key>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.macro.name entity.name.tag</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>meta.macro.setting meta.macro.key constant.other</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;!\\)({)(anchor)(:)([^}]+?)(})</string>
+			<key>name</key>
+			<string>meta.macro.anchor.wiki.confluence</string>
+		</dict>
 		<key>block-macro</key>
 		<dict>
 			<key>patterns</key>
@@ -70,6 +101,22 @@
 				<dict>
 					<key>include</key>
 					<string>#table-cell</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#info-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#note-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#tip-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#warning-macro</string>
 				</dict>
 			</array>
 		</dict>
@@ -434,6 +481,20 @@
 				</dict>
 			</array>
 		</dict>
+		<key>code-blocks</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#recognized-code-blocks</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#unrecognized-code-block</string>
+				</dict>
+			</array>
+		</dict>
 		<key>heading-1</key>
 		<dict>
 			<key>captures</key>
@@ -616,6 +677,64 @@
 			<key>name</key>
 			<string>markup.image</string>
 		</dict>
+		<key>info-macro</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\\)({)(info)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.macro.name entity.name.tag</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>({)(info)(})</string>
+			<key>name</key>
+			<string>meta.macro.info.wiki.confluence</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#recognized-macro-setting-helper</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#code-blocks</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
+				</dict>
+			</array>
+		</dict>
 		<key>inline-macro</key>
 		<dict>
 			<key>patterns</key>
@@ -627,6 +746,10 @@
 				<dict>
 					<key>include</key>
 					<string>#page-link</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#anchor-macro</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -714,6 +837,64 @@
 				<dict>
 					<key>include</key>
 					<string>#macro-key-value-pair</string>
+				</dict>
+			</array>
+		</dict>
+		<key>note-macro</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\\)({)(note)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.macro.name entity.name.tag</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>({)(note)(})</string>
+			<key>name</key>
+			<string>meta.macro.note.wiki.confluence</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#recognized-macro-setting-helper</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#code-blocks</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
 				</dict>
 			</array>
 		</dict>
@@ -830,6 +1011,66 @@
 				<dict>
 					<key>include</key>
 					<string>#code-block-xml</string>
+				</dict>
+			</array>
+		</dict>
+		<key>recognized-macro-setting-helper</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>meta.macro.setting meta.macro.key constant.other</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>meta.macro.setting meta.macro.value string.unquoted</string>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator</string>
+						</dict>
+						<key>6</key>
+						<dict>
+							<key>name</key>
+							<string>meta.macro.setting meta.macro.key constant.other</string>
+						</dict>
+						<key>7</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator</string>
+						</dict>
+						<key>8</key>
+						<dict>
+							<key>name</key>
+							<string>meta.macro.setting meta.macro.value string.unquoted</string>
+						</dict>
+						<key>9</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator</string>
+						</dict>
+					</dict>
+					<key>match</key>
+					<string>(?:(:)(?:([^=|}]+?)(=)([^=|}]+?)(\|))*([^=|}]+?)(=)([^}]+?))?(})</string>
+					<key>name</key>
+					<string>meta.macro.settings</string>
 				</dict>
 			</array>
 		</dict>
@@ -1170,9 +1411,63 @@
 					<key>include</key>
 					<string>#superscript</string>
 				</dict>
+			</array>
+		</dict>
+		<key>tip-macro</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\\)({)(tip)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.macro.name entity.name.tag</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>({)(tip)(})</string>
+			<key>name</key>
+			<string>meta.macro.tip.wiki.confluence</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#recognized-macro-setting-helper</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#single-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#code-blocks</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
 				</dict>
 			</array>
 		</dict>
@@ -1246,6 +1541,64 @@
 							<string>keyword.operator</string>
 						</dict>
 					</dict>
+				</dict>
+			</array>
+		</dict>
+		<key>warning-macro</key>
+		<dict>
+			<key>begin</key>
+			<string>(?&lt;!\\)({)(warning)</string>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.macro.name entity.name.tag</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>({)(warning)(})</string>
+			<key>name</key>
+			<string>meta.macro.warning.wiki.confluence</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#recognized-macro-setting-helper</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#code-blocks</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lists</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#text-styling</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#inline-macro</string>
 				</dict>
 			</array>
 		</dict>

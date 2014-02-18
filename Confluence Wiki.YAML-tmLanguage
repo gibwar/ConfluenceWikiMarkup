@@ -7,8 +7,7 @@ uuid: de43e6f7-a820-4d64-a472-30c79f83a963
 
 patterns:
 - include: '#character-escape'
-- include: '#recognized-code-blocks'
-- include: '#unrecognized-code-block'
+- include: '#code-blocks'
 - include: '#page-link'
 - include: '#block-macro'
 - include: '#lists'
@@ -24,6 +23,14 @@ repository:
     - include: '#horizontal-line'
     - include: '#table-header'
     - include: '#table-cell'
+    - include: '#info-macro'
+    - include: '#note-macro'
+    - include: '#tip-macro'
+    - include: '#warning-macro'
+  code-blocks:
+    patterns:
+    - include: '#recognized-code-blocks'
+    - include: '#unrecognized-code-block'
   headings:
     patterns:
     - include: '#heading-1'
@@ -36,6 +43,7 @@ repository:
     patterns:
     - include: '#character-escape'
     - include: '#page-link'
+    - include: '#anchor-macro'
     - include: '#image-link'
     - include: '#single-macro'
   lists:
@@ -62,7 +70,6 @@ repository:
     - include: '#citation'
     - include: '#subscript'
     - include: '#superscript'
-    - include: '#single-macro'
 
   # Inline macro/style definitions
   image-link:
@@ -80,6 +87,15 @@ repository:
       '2': {name: meta.wiki.link.destination}
 
   # Block macro/style definitions
+  anchor-macro:
+    name: meta.macro.anchor.wiki.confluence
+    match: (?<!\\)({)(anchor)(:)([^}]+?)(})
+    captures:
+      '1': {name: keyword.operator}
+      '2': {name: meta.macro.name entity.name.tag}
+      '3': {name: keyword.operator}
+      '4': {name: meta.macro.setting meta.macro.key constant.other}
+      '5': {name: keyword.operator}
   block-quote:
     name: markup.quote
     match: ((?:^|\s+)bq\.)
@@ -94,6 +110,72 @@ repository:
   horizontal-line:
     name: markup.separator.horizontal meta.separator.horizontal
     match: (^\s*----\s*$)
+  info-macro:
+    name: meta.macro.info.wiki.confluence
+    begin: (?<!\\)({)(info)
+    end: ({)(info)(})
+    captures:
+      '1': {name: keyword.operator}
+      '2': {name: meta.macro.name entity.name.tag}
+      '3': {name: keyword.operator}
+    patterns:
+    - include: '#recognized-macro-setting-helper'
+    - include: '#single-macro'
+    - include: '#code-blocks'
+    - include: '#lists'
+    - include: '#text-styling'
+    - include: '#block-macro'
+    - include: '#inline-macro'
+  note-macro:
+    name: meta.macro.note.wiki.confluence
+    begin: (?<!\\)({)(note)
+    end: ({)(note)(})
+    captures:
+      '1': {name: keyword.operator}
+      '2': {name: meta.macro.name entity.name.tag}
+      '3': {name: keyword.operator}
+    patterns:
+    - include: '#recognized-macro-setting-helper'
+    - include: '#single-macro'
+    - include: '#code-blocks'
+    - include: '#lists'
+    - include: '#text-styling'
+    - include: '#block-macro'
+    - include: '#inline-macro'
+  tip-macro:
+    name: meta.macro.tip.wiki.confluence
+    begin: (?<!\\)({)(tip)
+    end: ({)(tip)(})
+    captures:
+      '1': {name: keyword.operator}
+      '2': {name: meta.macro.name entity.name.tag}
+      '3': {name: keyword.operator}
+    patterns:
+    - include: '#recognized-macro-setting-helper'
+    - include: '#single-macro'
+    - include: '#code-blocks'
+    - include: '#lists'
+    - include: '#text-styling'
+    - include: '#block-macro'
+    - include: '#inline-macro'
+  warning-macro:
+    name: meta.macro.warning.wiki.confluence
+    begin: (?<!\\)({)(warning)
+    end: ({)(warning)(})
+    captures:
+      '1': {name: keyword.operator}
+      '2': {name: meta.macro.name entity.name.tag}
+      '3': {name: keyword.operator}
+    patterns:
+    - include: '#recognized-macro-setting-helper'
+    - include: '#single-macro'
+    - include: '#code-blocks'
+    - include: '#lists'
+    - include: '#text-styling'
+    - include: '#block-macro'
+    - include: '#inline-macro'
+
+  # Table definitions
   secondary-table-header:
     name: markup.table.header meta.table.header.wiki
     begin: (?:\s+(\|\|))
@@ -269,6 +351,20 @@ repository:
   character-escape:
     name: constant.character.escape
     match: (\\(\||{|}|\[|\]|\(|\)|\*|_|-|\+|\\|\?|~|\^))
+  recognized-macro-setting-helper:
+    patterns:
+    - name: meta.macro.settings
+      match: (?:(:)(?:([^=|}]+?)(=)([^=|}]+?)(\|))*([^=|}]+?)(=)([^}]+?))?(})
+      captures:
+        '1': {name: keyword.operator}
+        '2': {name: meta.macro.setting meta.macro.key constant.other}
+        '3': {name: keyword.operator}
+        '4': {name: meta.macro.setting meta.macro.value string.unquoted}
+        '5': {name: keyword.operator}
+        '6': {name: meta.macro.setting meta.macro.key constant.other}
+        '7': {name: keyword.operator}
+        '8': {name: meta.macro.setting meta.macro.value string.unquoted}
+        '9': {name: keyword.operator}
   macro-settings:
     patterns:
     - match: (:|\|)
