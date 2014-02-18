@@ -114,7 +114,7 @@
 			<key>begin</key>
 			<string>(?&lt;!\w)(?&lt;!\\)\*(?=.+?(?&lt;!\\)\*)</string>
 			<key>end</key>
-			<string>(?&lt;!\\)\*</string>
+			<string>(?&lt;!\\)\*(?!\w)</string>
 			<key>name</key>
 			<string>markup.bold meta.wiki.bold</string>
 			<key>patterns</key>
@@ -836,7 +836,7 @@
 		<key>secondary-table-cell</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:\s*(\|)\s+)</string>
+			<string>(?:\s+(\|))</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -884,7 +884,7 @@
 		<key>secondary-table-header</key>
 		<dict>
 			<key>begin</key>
-			<string>(?:\s*(\|\|)\s+)</string>
+			<string>(?:\s+(\|\|))</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -1037,7 +1037,7 @@
 		<key>table-cell</key>
 		<dict>
 			<key>begin</key>
-			<string>^((?:\s*\|))\s+</string>
+			<string>^((?:\s*\|))</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -1085,7 +1085,7 @@
 		<key>table-header</key>
 		<dict>
 			<key>begin</key>
-			<string>^((?:\s*\|\|))\s+</string>
+			<string>^((?:\s*\|\|))</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>

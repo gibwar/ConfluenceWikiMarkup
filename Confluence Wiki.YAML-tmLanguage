@@ -96,7 +96,7 @@ repository:
     match: (^\s*----\s*$)
   secondary-table-header:
     name: markup.table.header meta.table.header.wiki
-    begin: (?:\s*(\|\|)\s+)
+    begin: (?:\s+(\|\|))
     end: (?=\||$)
     captures:
       '1': {name: meta.table.header.subtle}
@@ -110,7 +110,7 @@ repository:
       - include: '#inline-macro'
   secondary-table-cell:
     name: markup.table.cell meta.table.cell.wiki
-    begin: (?:\s*(\|)\s+)
+    begin: (?:\s+(\|))
     end: (?=\||$)
     captures:
       '1': {name: meta.table.cell.subtle}
@@ -124,7 +124,7 @@ repository:
       - include: '#inline-macro'
   table-header:
     name: markup.table.header meta.table.header.wiki
-    begin: ^((?:\s*\|\|))\s+
+    begin: ^((?:\s*\|\|))
     end: $
     captures:
       '1': {name: meta.table.header.subtle}
@@ -138,7 +138,7 @@ repository:
     - include: '#inline-macro'
   table-cell:
     name: markup.table.cell meta.table.cell.wiki
-    begin: ^((?:\s*\|))\s+
+    begin: ^((?:\s*\|))
     end: $
     captures:
       '1': {name: meta.table.cell.subtle}
