@@ -1,0 +1,11 @@
+<snippet>
+	<description>Inserts a div block.</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>div</tabTrigger>
+	<content><![CDATA[
+{div}
+$0
+{div}
+
+]]></content>
+</snippet>

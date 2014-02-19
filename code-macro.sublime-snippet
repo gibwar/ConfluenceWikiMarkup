@@ -1,0 +1,11 @@
+<snippet>
+	<description>Inserts a new code block.</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>code</tabTrigger>
+	<content><![CDATA[
+{code:language=${1:sql}|linenumbers=${2:true}|collapse=${3:false}}
+$4
+{code}
+$0
+]]></content>
+</snippet>

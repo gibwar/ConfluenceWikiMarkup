@@ -1,0 +1,8 @@
+<snippet>
+	<description>Inserts a note.</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>note</tabTrigger>
+	<content><![CDATA[{note:title=${1:Note Title}|icon=${2:true}}$0{note}
+
+]]></content>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+	<description>Inserts an info block.</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>info</tabTrigger>
+	<content><![CDATA[{info:title=${1:Info Title}|icon=${2:true}}$0{info}
+
+]]></content>
+</snippet>

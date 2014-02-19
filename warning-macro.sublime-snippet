@@ -1,0 +1,8 @@
+<snippet>
+	<description>Inserts a warning block.</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>warning</tabTrigger>
+	<content><![CDATA[{warning:title=${1:Warning Title}|icon=${2:true}}$0{warning}
+
+]]></content>
+</snippet>

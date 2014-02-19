@@ -1,0 +1,6 @@
+<snippet>
+	<description>Color</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>color</tabTrigger>
+	<content><![CDATA[{color:#$1}$0{color}]]></content>
+</snippet>

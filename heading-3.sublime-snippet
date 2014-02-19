@@ -1,0 +1,8 @@
+<snippet>
+	<description>Heading 3</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>3</tabTrigger>
+	<content><![CDATA[h3. $1
+$0
+]]></content>
+</snippet>

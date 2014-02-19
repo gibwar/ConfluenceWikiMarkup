@@ -1,0 +1,8 @@
+<snippet>
+	<description>Inserts a new tip.</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>tip</tabTrigger>
+	<content><![CDATA[{tip:title=${1:Tip Title}|icon=${2:true}}$0{tip}
+
+]]></content>
+</snippet>

@@ -1,0 +1,7 @@
+<snippet>
+	<description>Table of Contents</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>toc</tabTrigger>
+	<content><![CDATA[{toc:style=${1:none}|minLevel=${2:2}|maxLevel=${3:4}|printable=${4:false}}
+$0]]></content>
+</snippet>

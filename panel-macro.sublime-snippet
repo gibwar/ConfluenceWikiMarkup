@@ -1,0 +1,11 @@
+<snippet>
+	<description>Inserts a new panel.</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>panel</tabTrigger>
+	<content><![CDATA[
+{panel}
+$0
+{panel}
+
+]]></content>
+</snippet>

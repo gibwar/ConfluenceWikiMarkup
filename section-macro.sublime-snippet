@@ -1,0 +1,11 @@
+<snippet>
+	<description>Inserts a new section.</description>
+	<scope>text.wiki.confluence</scope>
+	<tabTrigger>section</tabTrigger>
+	<content><![CDATA[
+{section}
+$0
+{section}
+
+]]></content>
+</snippet>
