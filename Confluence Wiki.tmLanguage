@@ -936,24 +936,16 @@
 		<dict>
 			<key>begin</key>
 			<string>({{)</string>
-			<key>beginCaptures</key>
+			<key>captures</key>
 			<dict>
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.operator.subtle.confluence keyword.operator.subtle.confluence</string>
+					<string>keyword.operator.subtle.confluence meta.operator.subtle.confluence</string>
 				</dict>
 			</dict>
 			<key>end</key>
 			<string>(}})</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>meta.operator.subtle.confluence keyword.operator.subtle.confluence</string>
-				</dict>
-			</dict>
 			<key>name</key>
 			<string>markup.code.confluence meta.preformatted.confluence</string>
 			<key>patterns</key>

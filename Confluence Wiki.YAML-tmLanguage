@@ -332,11 +332,9 @@ repository:
   preformatted:
     name: markup.code.confluence meta.preformatted.confluence
     begin: ({{)
-    beginCaptures:
-      '1': {name: meta.operator.subtle.confluence keyword.operator.subtle.confluence}
     end: (}})
-    endCaptures:
-      '1': {name: meta.operator.subtle.confluence keyword.operator.subtle.confluence}
+    captures:
+      '1': {name: keyword.operator.subtle.confluence meta.operator.subtle.confluence}
     patterns:
     - include: '#character-escape'
     - include: '#page-link'
