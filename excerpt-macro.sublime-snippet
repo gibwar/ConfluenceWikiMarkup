@@ -1,0 +1,11 @@
+<snippet>
+    <description>Inserts a new excerpt block.</description>
+    <scope>text.wiki.confluence</scope>
+    <tabTrigger>excerpt</tabTrigger>
+    <content><![CDATA[
+{excerpt:hidden=${1:true}}
+$2
+{excerpt}
+$0
+]]></content>
+</snippet>
