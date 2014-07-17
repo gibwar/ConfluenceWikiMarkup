@@ -37,8 +37,9 @@ after.
 * **code** - Inserts a code block.
 * **color** - Inserts a color macro.
 * **div** - Inserts a div macro with a blank line in between.
-* **info** - Inserts an info macro.
-* **note** - Inserts a note.
+* **excerpt** - Inserts an excerpt macro with a blank line in between.
+* **info** - Inserts an info macro (blue-colored box, information icon).
+* **note** - Inserts a note macro (yellow-colored box, warning icon).
 * **panel** - Inserts a panel with a blank line in between.
 * **section** - Inserts a section with a blank line in between.
 * **stat** - Inserts a grey status macro.
@@ -52,8 +53,8 @@ by wrapping the cursor in a pair of dual vertical bars. Best used when using
 the <kbd>end</kbd>, <kbd>tab</kbd> key sequence as the <kbd>end</kbd> will go
 to the end of the line (including the whitespace).
 * **toc** - Inserts a table of contents with some sensible defaults.
-* **tip** - Inserts a tip.
-* **warning** - Inserts a warning.
+* **tip** - Inserts a tip macro (green-colored box, checkmark icon).
+* **warning** - Inserts a warning macro (red-colored box, danger icon).
 
 
 
